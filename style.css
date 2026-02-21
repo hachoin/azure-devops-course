@@ -28,7 +28,7 @@ body{margin:0}
 /* ===== Hero ===== */
 .hero{
   background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-  url('bg.png') center/cover no-repeat;
+  url('azure-devops-course.png') center/cover no-repeat;
   color:#fff;
   text-align:center;
   padding:120px 20px;
@@ -998,6 +998,7 @@ html {
   font-size: 22px;
   color: #3a8bfd;
 }
+
 
 
 
