@@ -416,36 +416,36 @@
     <div class="enquiry-left">
       <h2>Enquire About This Course</h2>
       <p>Talk to our course advisor. Get syllabus, demo details, fee structure and career guidance.</p>
-
-      <ul class="enquiry-points">
-        <li>✔ Free Demo Session</li>
-        <li>✔ Curriculum & Fee Details</li>
-        <li>✔ Career Guidance</li>
-        <li>✔ WhatsApp Support</li>
-      </ul>
     </div>
 
-    <!-- FORM -->
-    <form id="enquiryForm" class="enquiry-form">
+    <!-- GOOGLE FORM DIRECT -->
+    <form id="enquiryForm"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSduEfnKqVDVXwpuh9lvfQGkL934JBJlM6GziXnT6NNqYzDYQA/formResponse"
+      method="POST"
+      target="hidden_iframe">
 
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="email" id="email" placeholder="Email Address" required>
-      <input type="tel" id="phone" placeholder="Phone / WhatsApp Number" required>
+      <input type="text" name="entry.1795851255" placeholder="Full Name" required>
+      <input type="email" name="entry.1572640658" placeholder="Email Address" required>
+      <input type="tel" name="entry.85357022" placeholder="Phone Number" required>
 
-      <select id="country" required>
+      <!-- WhatsApp same as phone -->
+      <input type="hidden" name="entry.1537635821" id="whatsappField">
+
+      <!-- Course fixed -->
+      <input type="hidden" name="entry.896692678" value="aiml">
+
+      <select name="entry.1768586726" required>
         <option value="">Select Country</option>
         <option>United States</option>
-        <option>Canada</option>
-        <option>United Kingdom</option>
-        <option>Australia</option>
         <option>India</option>
-        <option>Germany</option>
-        <option>UAE</option>
-        <option>Singapore</option>
-        <option>Other</option>
+        <option>Canada</option>
+        <option>Australia</option>
       </select>
 
-      <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+      <textarea name="entry.1968396756" placeholder="Your Message"></textarea>
+
+      <!-- Source -->
+      <input type="hidden" name="entry.996980086" value="website">
 
       <!-- HUMAN CHECK -->
       <div class="human-check">
@@ -454,9 +454,9 @@
           I am not a robot
         </label>
 
-        <div class="math-verify">
+        <div>
           <span id="mathQuestion"></span>
-          <input type="number" id="mathAnswer" placeholder="Your Answer">
+          <input type="number" id="mathAnswer" placeholder="Answer">
         </div>
 
         <p id="errorMsg" style="color:red; display:none;">Please verify you are human.</p>
@@ -464,12 +464,14 @@
 
       <button type="submit">Submit Enquiry</button>
 
-      <!-- SUCCESS MESSAGE -->
-      <p id="successMsg" style="color:green; display:none; margin-top:10px;">
-        ✅ Thank you! Your enquiry has been submitted successfully.
+      <p id="successMsg" style="color:green; display:none;">
+        ✅ Thank you! Your enquiry submitted successfully.
       </p>
 
     </form>
+
+    <!-- Hidden iframe (prevents redirect) -->
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   </div>
 </section>
