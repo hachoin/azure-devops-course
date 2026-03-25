@@ -425,12 +425,14 @@
       </ul>
     </div>
 
-    <form action="https://formspree.io/f/xdalodnq" method="POST" class="enquiry-form">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="tel" name="phone" placeholder="Phone / WhatsApp Number" required>
+    <!-- FORM -->
+    <form id="enquiryForm" class="enquiry-form">
 
-      <select name="country" required>
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="tel" id="phone" placeholder="Phone / WhatsApp Number" required>
+
+      <select id="country" required>
         <option value="">Select Country</option>
         <option>United States</option>
         <option>Canada</option>
@@ -443,26 +445,30 @@
         <option>Other</option>
       </select>
 
-      <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+      <textarea id="message" rows="4" placeholder="Your Message"></textarea>
 
-		   <div class="human-check">
-  <label>
-    <input type="checkbox" id="humanCheck">
-    I am not a robot
-  </label>
+      <!-- HUMAN CHECK -->
+      <div class="human-check">
+        <label>
+          <input type="checkbox" id="humanCheck">
+          I am not a robot
+        </label>
 
-  <div class="math-verify">
-    <span id="mathQuestion"></span>
-    <input type="number" id="mathAnswer" placeholder="Your Answer">
-  </div>
+        <div class="math-verify">
+          <span id="mathQuestion"></span>
+          <input type="number" id="mathAnswer" placeholder="Your Answer">
+        </div>
 
-  <p id="errorMsg" style="color:red; display:none;">Please verify you are human.</p>
-</div>
+        <p id="errorMsg" style="color:red; display:none;">Please verify you are human.</p>
+      </div>
 
+      <button type="submit">Submit Enquiry</button>
 
-    <button type="submit">Submit Enquiry</button>
+      <!-- SUCCESS MESSAGE -->
+      <p id="successMsg" style="color:green; display:none; margin-top:10px;">
+        ✅ Thank you! Your enquiry has been submitted successfully.
+      </p>
 
-     
     </form>
 
   </div>
