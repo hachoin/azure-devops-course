@@ -419,56 +419,40 @@
     </div>
 
     <!-- GOOGLE FORM DIRECT -->
-    <form id="enquiryForm"
-      action="https://docs.google.com/forms/d/e/1FAIpQLSduEfnKqVDVXwpuh9lvfQGkL934JBJlM6GziXnT6NNqYzDYQA/formResponse"
-      method="POST"
-      target="hidden_iframe">
+   <form id="gform"
+  action="https://docs.google.com/forms/d/e/1FAIpQLSduEfnKqVDVXwpuh9lvfQGkL934JBJlM6GziXnT6NNqYzDYQA/formResponse"
+  method="POST"
+  target="hidden_iframe">
 
-      <input type="text" name="entry.1795851255" placeholder="Full Name" required>
-      <input type="email" name="entry.1572640658" placeholder="Email Address" required>
-      <input type="tel" name="entry.85357022" placeholder="Phone Number" required>
+  <input type="text" name="entry.1795851255" placeholder="Full Name" required>
+  <input type="email" name="entry.1572640658" placeholder="Email" required>
+  <input type="tel" name="entry.85357022" id="phone" placeholder="Phone" required>
 
-      <!-- WhatsApp same as phone -->
-      <input type="hidden" name="entry.1537635821" id="whatsappField">
+  <!-- WhatsApp -->
+  <input type="hidden" name="entry.1537635821" id="whatsapp">
 
-      <!-- Course fixed -->
-      <input type="hidden" name="entry.896692678" value="aiml">
+  <!-- Course -->
+  <input type="hidden" name="entry.896692678" value="aiml">
 
-      <select name="entry.1768586726" required>
-        <option value="">Select Country</option>
-        <option>United States</option>
-        <option>India</option>
-        <option>Canada</option>
-        <option>Australia</option>
-      </select>
+  <!-- Country -->
+  <input type="text" name="entry.1768586726" placeholder="Country" required>
 
-      <textarea name="entry.1968396756" placeholder="Your Message"></textarea>
+  <!-- Message -->
+  <textarea name="entry.1968396756" placeholder="Message"></textarea>
 
-      <!-- Source -->
-      <input type="hidden" name="entry.996980086" value="website">
+  <!-- Source -->
+  <input type="hidden" name="entry.996980086" value="google">
 
-      <!-- HUMAN CHECK -->
-      <div class="human-check">
-        <label>
-          <input type="checkbox" id="humanCheck">
-          I am not a robot
-        </label>
+  <button type="submit">Submit</button>
 
-        <div>
-          <span id="mathQuestion"></span>
-          <input type="number" id="mathAnswer" placeholder="Answer">
-        </div>
+  <p id="success" style="display:none; color:green;">
+    ✅ Submitted successfully!
+  </p>
 
-        <p id="errorMsg" style="color:red; display:none;">Please verify you are human.</p>
-      </div>
+</form>
 
-      <button type="submit">Submit Enquiry</button>
-
-      <p id="successMsg" style="color:green; display:none;">
-        ✅ Thank you! Your enquiry submitted successfully.
-      </p>
-
-    </form>
+<!-- Prevent redirect -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 
     <!-- Hidden iframe (prevents redirect) -->
     <iframe name="hidden_iframe" style="display:none;"></iframe>
