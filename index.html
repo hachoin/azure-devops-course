@@ -491,66 +491,38 @@
 
 <script src="app.js"></script>
 <script>
-  // Google Form URL
-  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSduEfnKqVDVXwpuh9lvfQGkL934JBJlM6GziXnT6NNqYzDYQA/formResponse";
-
-  // Math captcha
   let num1 = Math.floor(Math.random() * 10);
   let num2 = Math.floor(Math.random() * 10);
 
   document.getElementById("mathQuestion").innerText = `Solve: ${num1} + ${num2} = ?`;
 
-  document.getElementById("enquiryForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+  const form = document.getElementById("enquiryForm");
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const country = document.getElementById("country").value;
-    const message = document.getElementById("message").value;
+  form.addEventListener("submit", function(e) {
 
     const humanCheck = document.getElementById("humanCheck").checked;
     const mathAnswer = document.getElementById("mathAnswer").value;
 
-    // Validation
     if (!humanCheck || parseInt(mathAnswer) !== (num1 + num2)) {
+      e.preventDefault();
       document.getElementById("errorMsg").style.display = "block";
-      return;
-    } else {
-      document.getElementById("errorMsg").style.display = "none";
+      return false;
     }
 
-    // Create form data
-    const formData = new FormData();
+    // Copy phone → WhatsApp field
+    const phone = document.querySelector('[name="entry.85357022"]').value;
+    document.getElementById("whatsappField").value = phone;
 
-    formData.append("entry.1795851255", name);
-    formData.append("entry.1572640658", email);
-    formData.append("entry.85357022", phone);
-    formData.append("entry.1537635821", phone);
-    formData.append("entry.896692678", "aiml"); // course
-    formData.append("entry.1768586726", country);
-    formData.append("entry.1968396756", message);
-    formData.append("entry.996980086", "website"); // source
-
-    // Submit silently
-    fetch(GOOGLE_FORM_URL, {
-      method: "POST",
-      mode: "no-cors",
-      body: formData
-    })
-    .then(() => {
+    // Show success after slight delay
+    setTimeout(() => {
       document.getElementById("successMsg").style.display = "block";
-      document.getElementById("enquiryForm").reset();
+      form.reset();
 
       // Reset captcha
       num1 = Math.floor(Math.random() * 10);
       num2 = Math.floor(Math.random() * 10);
       document.getElementById("mathQuestion").innerText = `Solve: ${num1} + ${num2} = ?`;
-    })
-    .catch(() => {
-      alert("Something went wrong. Please try again.");
-    });
-
+    }, 1000);
   });
 </script>
 	
